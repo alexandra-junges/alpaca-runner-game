@@ -27,6 +27,14 @@ class Player {
     move() {
         this.left += this.directionX;
         this.top += this.directionY;
+
+        //keep the player on the screen
+        if(this.left <= 0) {
+            this.left = 0;
+        }
+        if(this.top <= 0) {
+            this.top = 0;
+        }
         this.updatePosition();
     }
 
