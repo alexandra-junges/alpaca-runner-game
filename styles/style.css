@@ -1,26 +1,71 @@
+/*
+    blue sky: #b4e9f9;
+    brown text: #5b4842;
+    cream button: #fdf2d5;
+    orange button: #f17445;
+*/
+
 body {
   padding: 0;
-  text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 
-#game-screen {
-  display: none;
-  align-content: center;
-  padding: 20px 0px;
-  overflow: hidden;
-  position: relative;
-  background-image: url(../images/background.png);
-  background-size: cover;
-  animation: slide 5s linear infinite;
+#game-start{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-@keyframes slide {
-  0% {
-    background-position: 1000px 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
+.logo-img {
+  width: 350px;
+  margin-top: 50px;
+}
+
+.game-instructions {
+    font-size: 15px;
+    color: #5b4842;
+    text-align: center;
+}
+
+#start-button {
+    background-color: #f17445;
+    color: #fdf2d5;
+    border: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+}
+
+.start-page-alpaca {
+    width: 265px;
+    height: auto;
+    margin-left: auto;
+    margin-top: -300px;
+}
+
+#game-container {
+    background-color: #b4e9f9;
+}
+
+/* allow the clouds to move freely + applies an animation */
+.cloud {
+  position: absolute;
+  width: 60px;
+  animation: cloudMove 8s linear infinite;
+}
+
+/* adds the position and the speed */
+.c1 { top: 10px; animation-duration: 18s; }
+.c2 { top: 80px; animation-duration: 25s; }
+.c3 { top: 200px; animation-duration: 38s; }
+
+/* this is the animation */
+@keyframes cloudMove {
+   0% { left: 100%; } /* from where to start */
+  100% { left: -60px; } /* where to end */
 }
 
 #lives {
@@ -40,7 +85,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 60px;
+    height: 80px;
     background-image: url('../images/ground.png');
     background-repeat: repeat-x;
     background-size: auto 100%; 
