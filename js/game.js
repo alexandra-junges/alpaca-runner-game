@@ -3,9 +3,9 @@ class Game {
         this.gameStart = document.getElementById("game-start");
         this.gameScreen = document.getElementById("game-screen");
         this.gameEnd = document.getElementById("game-end");
-        this.player = null;
-        this.height = 1920;
-        this.width = 1080;
+        this.player = new Player(this.gameScreen, 100, 180, 200, 240);
+        this.height = 430;
+        this.width = 1000;
         this.obstacles = [];
         //this.score = 0; I don't think I will use scores
         this.lives = 3;
@@ -33,7 +33,7 @@ class Game {
     }
 
     update() {
-        console.log("update method");
+        this.player.move();
     }
 
     gameOver() {
