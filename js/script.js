@@ -4,7 +4,11 @@ const restartBtn = document.getElementById("restart-button");
 
 startBtn.addEventListener("click", () => {
     startGame();
-})
+});
+
+restartBtn.addEventListener("click", () => {
+    window.location.reload();
+});
 
 //keyboard events
 window.addEventListener("keydown", (event) => {
@@ -18,7 +22,7 @@ window.addEventListener("keydown", (event) => {
     if(event.code === "Space") {
         alpacaGame.player.directionY = -4;
     }
-})
+});
 
 window.addEventListener("keyup", (event) => {
     if(event.code === "ArrowLeft") {
@@ -30,12 +34,12 @@ window.addEventListener("keyup", (event) => {
     if(event.code === "Space") {
         alpacaGame.player.directionY = 0;
     }
-})
+});
 
 function startGame() {
     console.log("start game");
     alpacaGame = new Game();
     alpacaGame.start();
-}
+};
 
 

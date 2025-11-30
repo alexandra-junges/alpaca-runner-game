@@ -23,28 +23,29 @@
         </div>
 
         <!-- Game Screen -->
-        <div id="game-container">
-            <div id="game-screen">
-                <div>
-                    <img src="../images/cloud.png" class="cloud c1">
-                    <img src="../images/cloud.png" class="cloud c2">
-                    <img src="../images/cloud.png" class="cloud c3">
-                </div>
-
-                <div id="lives">
-                    <img src="./images/heart.png" alt="heart lives" class="heart" />
-                    <img src="./images/heart.png" alt="heart lives"  class="heart" />
-                    <img src="./images/heart.png" alt="heart lives"  class="heart" />
-                </div>
-                <div id="ground"></div>
+        <div id="game-screen">
+            <div class="clouds">
+                <img src="../images/cloud.png" alt="white cloud" class="cloud c1">
+                <img src="../images/cloud.png" alt="white cloud" class="cloud c2">
+                <img src="../images/cloud.png" alt="white cloud" class="cloud c3">
             </div>
+
+            <div id="lives">
+                <img src="./images/heart.png" alt="heart lives" class="heart" />
+                <img src="./images/heart.png" alt="heart lives"  class="heart" />
+                <img src="./images/heart.png" alt="heart lives"  class="heart" />
+            </div>
+
+            <p>Score: <span id="score">0</span></p>
+            
+            <div id="ground"></div>
         </div>
 
         <!-- Game Over -->
         <div id="game-end">
             <h1>Game Over</h1>
             <img src="./images/alpaca-resting.png" alt="alpaca resting" class="alpaca-resting" />
-            <button id="restart-button">Restart</button>
+            <button id="restart-button">PLAY AGAIN</button>
         </div>
     </main>
 

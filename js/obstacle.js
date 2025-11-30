@@ -23,15 +23,15 @@ class Obstacle {
         this.element.style.left = `${this.left}px`;   
 
         this.gameScreen.appendChild(this.element);
-    }
+    };
 
     move() {
-        this.left += 3;
+        this.left -= 3;
         this.updatePosition();
-    }
+    };
 
     updatePosition() {
         this.element.style.top = `${this.top}px`;
         this.element.style.left = `${this.left}px`;   
-    }
-}
+    };
+};

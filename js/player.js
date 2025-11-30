@@ -22,7 +22,7 @@ class Player {
         this.element.style.left = `${this.left}px`;   
 
         this.gameScreen.appendChild(this.element);
-    }
+    };
 
     move() {
         this.left += this.directionX;
@@ -36,12 +36,12 @@ class Player {
             this.top = 0;
         }
         this.updatePosition();
-    }
+    };
 
     updatePosition() {
         this.element.style.top = `${this.top}px`;
         this.element.style.left = `${this.left}px`;   
-    }
+    };
 
     didCollide(obstacle) {
     const playerRect = this.element.getBoundingClientRect();
@@ -58,4 +58,4 @@ class Player {
       return false;
     }
   }
-}
+};
