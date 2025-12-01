@@ -42,6 +42,7 @@ window.addEventListener("keyup", (event) => {
 function startGame() {
     alpacaGame = new Game();
     alpacaGame.start();
+    startClouds(); 
 };
 
 

@@ -5,8 +5,8 @@ class PowerUp {
 
         this.width = 40;
         this.height = 40;
-        this.left = 100;
-        this.top = 330;
+        this.left = game.width;
+        this.top = 305;
 
         this.element = document.createElement('img');
         this.element.src = "../images/life.png"; 

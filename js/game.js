@@ -106,15 +106,15 @@ class Game {
             }
         }
 
-        for (let i = 0; i < this.powerUps.length; i++) {
-            const currentPowerUp = this.powerUps[i];
+        for (let j = 0; j < this.powerUps.length; j++) {
+            const currentPowerUp = this.powerUps[j];
             currentPowerUp.move();
-
+            console.log(this.powerUps[j]);
             if (this.player.didCollide(currentPowerUp)) {
             // remove from screen and array
             currentPowerUp.element.remove();
-            this.powerUps.splice(i, 1);
-            i--;
+            this.powerUps.splice(j, 1);
+            j--;
 
             // add one life     
             if (this.lives < this.livesElement.length) { 
@@ -126,8 +126,8 @@ class Game {
             // remove if passed the left edge
             if (currentPowerUp.left + currentPowerUp.width < 0) {
                 currentPowerUp.element.remove();
-                this.powerUps.splice(i, 1);
-                i--;
+                this.powerUps.splice(j, 1);
+                j--;
             }
         }
 

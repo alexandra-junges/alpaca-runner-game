@@ -16,7 +16,8 @@
             <img src="./images/logo.png" alt="alpaca logo" class="logo-img"/>
             <div class="game-instructions">
                 <p>1. Jump with the Spacebar.</p>
-                <p>2. Avoid hazards to finish the level; grab grass to get more life!</p>
+                <p>2. Avoid hazards to finish the level;</p>
+                <p>3. grab donuts to get more life!</p>
             </div>
             <button id="start-button">PLAY</button>
             <img src="./images/start-page-alpaca.png" alt="alpaca head" class="start-page-alpaca"/>
@@ -24,11 +25,7 @@
 
         <!-- Game Screen -->
         <div id="game-screen">
-            <div class="clouds">
-                <img src="./images/cloud.png" alt="white cloud" class="cloud c1">
-                <img src="./images/cloud.png" alt="white cloud" class="cloud c2">
-                <img src="./images/cloud.png" alt="white cloud" class="cloud c3">
-            </div>
+            <div id="cloud-container"></div>
 
             <div id="lives">
                 <img src="./images/heart.png" alt="heart lives" class="heart" />
@@ -53,6 +50,7 @@
         </div>
     </main>
 
+    <script type="text/javascript" src="js/clouds.js"></script>
     <script type="text/javascript" src="js/powerup.js"></script>
     <script type="text/javascript" src="js/obstacle.js"></script>
     <script type="text/javascript" src="js/player.js"></script>
