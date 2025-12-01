@@ -4,8 +4,8 @@ class Game {
         this.gameScreen = document.getElementById("game-screen");
         this.gameEnd = document.getElementById("game-end");
         //creating a new player, appeding to the screen and setting the size and position
-        this.player = new Player(this.gameScreen, 100, 180, 200, 240);
-        this.height = 430;
+        this.player = new Player(this.gameScreen);
+        this.height = 470;
         this.width = 1000;
         //creating a new obstacle and appeding to the screen
         this.obstacles = [new Obstacle(this.gameScreen)];
@@ -16,7 +16,7 @@ class Game {
         this.gameLoopFrequency = Math.floor(1000 / 60);
         //get elements from HTML
         this.scoreElement = document.getElementById('score');
-        this.livesElement = document.getElementById('lives');
+        this.livesElement = document.querySelectorAll('#lives .heart');
         //keep track of the frames
         this.frames = 0;
     };
@@ -24,8 +24,10 @@ class Game {
     start() {
         this.gameScreen.style.height = `${this.height}px`;
         this.gameScreen.style.width = `${this.width}px`;
+
         this.gameStart.style.display = 'none';
-        this.gameScreen.style.display = 'flex'; 
+        this.gameScreen.style.display = 'flex';
+
         this.gameIntervalId = setInterval(() => {
             this.gameLoop();
         }, this.gameLoopFrequency);
@@ -35,13 +37,13 @@ class Game {
         //add one to the frames
         this.frames++;
         //push more obstacles to the screen
-        if(this.frames % 200 === 0) {
+        if(this.frames % 190 === 0) {
             this.obstacles.push(new Obstacle(this.gameScreen));
         }
         this.update();
         if(this.gameIsOver) {
             clearInterval(this.gameIntervalId);
-            this.gameOver;
+            this.gameOver();
         }
     };
 
@@ -62,31 +64,34 @@ class Game {
                 i--;
                 //subtract one life
                 this.lives--;
-                this.livesElement.innerText = this.lives;
+                //remove heart image from DOM
+                this.livesElement[this.lives].style.display = 'none';
                 if(this.lives === 0) {
                     this.gameIsOver = true;
                 }
             }
 
-            //when the cactus goes out of the page
-            if(currentObstacle.top >= 430) {
-                //remove img from the DOM
-                currentObstacle.element.remove();
-                //remove obstacle from the array
-                this.obstacles.splice(i, 1);
-                i--;
+            //check if player passed the obstacle
+            if(!currentObstacle.passed && currentObstacle.left + currentObstacle.width < this.player.left) {
+                currentObstacle.passed = true;
                 //add one point
                 this.score++;
                 this.scoreElement.innerText = this.score;
+            }
+
+            //remove obstacle if fully left the screen
+            if(currentObstacle.left + currentObstacle.width < 0) {
+                //remove img from the DOM
+                currentObstacle.element.remove();
+                //remove obstacle from the arrayd
+                this.obstacles.splice(i, 1);
+                i--;
             }
         }
     };
 
     gameOver() {
-        console.log("game is over");
-        //hide the game screen
         this.gameScreen.style.display = 'none';
-        //show the game over screen
         this.gameEnd.style.display = 'flex';
     };
 };

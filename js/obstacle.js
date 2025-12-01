@@ -1,17 +1,27 @@
 class Obstacle {
     constructor(gameScreen) {
         this.gameScreen = gameScreen;
-        this.possibleLeftPosition = [700, 850];
-        this.left = this.possibleLeftPosition[
-            Math.floor(Math.random() * this.possibleLeftPosition.length)
+        this.passed = false;
+        
+        //difine the obstacles
+        this.types = [
+            {name: 'cactus', src:"../images/cactus.png", width: 60, height: 80, top: 350 },
+            {name: 'rock', src:"../images/rock.png", width: 60, height: 60, top: 385 },
         ];
-        this.top = 350;
-        this.width = 50;
-        this.height = 60;
+   
+        //random obstacle
+        const randomType = this.types[Math.floor(Math.random() * this.types.length)];
 
-        //cactus < img />
+        //set obstacle properties
+        this.type = randomType.name;
+        this.left = this.gameScreen.offsetWidth + Math.floor(Math.random() * 200);
+        this.top = randomType.top;
+        this.width = randomType.width;
+        this.height = randomType.height;
+
+        //DOM < img />
         this.element = document.createElement("img");
-        this.element.src = '../images/cactus.png';
+        this.element.src = randomType.src;
         this.element.style.position = "absolute";
 
         //the cactus size
@@ -33,5 +43,7 @@ class Obstacle {
     updatePosition() {
         this.element.style.top = `${this.top}px`;
         this.element.style.left = `${this.left}px`;   
+        this.element.style.position = 'absolute';
+        this.element.style.zIndex = 5; 
     };
 };

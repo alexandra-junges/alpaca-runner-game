@@ -1,4 +1,4 @@
-let alpacaGame
+let alpacaGame;
 const startBtn = document.getElementById("start-button");
 const restartBtn = document.getElementById("restart-button");
 
@@ -12,7 +12,7 @@ restartBtn.addEventListener("click", () => {
 
 //keyboard events
 window.addEventListener("keydown", (event) => {
-    console.log("a key was pressed", event)
+
     if(event.code === "ArrowLeft") {
         alpacaGame.player.directionX = -4;
     }
@@ -20,7 +20,13 @@ window.addEventListener("keydown", (event) => {
         alpacaGame.player.directionX = 4;
     }
     if(event.code === "Space") {
-        alpacaGame.player.directionY = -4;
+        const player = alpacaGame.player;
+
+        if(!player.isJumping) { // prevents double jump
+            player.isJumping = true;
+            player.velocityY = player.jumpStrength;
+            player.element.src = player.jumpingImg;  
+        }
     }
 });
 
@@ -31,13 +37,9 @@ window.addEventListener("keyup", (event) => {
     if(event.code === "ArrowRight") {
         alpacaGame.player.directionX = 0;
     }
-    if(event.code === "Space") {
-        alpacaGame.player.directionY = 0;
-    }
 });
 
 function startGame() {
-    console.log("start game");
     alpacaGame = new Game();
     alpacaGame.start();
 };

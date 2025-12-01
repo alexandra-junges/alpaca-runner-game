@@ -25,9 +25,9 @@
         <!-- Game Screen -->
         <div id="game-screen">
             <div class="clouds">
-                <img src="../images/cloud.png" alt="white cloud" class="cloud c1">
-                <img src="../images/cloud.png" alt="white cloud" class="cloud c2">
-                <img src="../images/cloud.png" alt="white cloud" class="cloud c3">
+                <img src="./images/cloud.png" alt="white cloud" class="cloud c1">
+                <img src="./images/cloud.png" alt="white cloud" class="cloud c2">
+                <img src="./images/cloud.png" alt="white cloud" class="cloud c3">
             </div>
 
             <div id="lives">
@@ -36,16 +36,20 @@
                 <img src="./images/heart.png" alt="heart lives"  class="heart" />
             </div>
 
-            <p>Score: <span id="score">0</span></p>
+            <span id="score">0</span>
             
             <div id="ground"></div>
         </div>
 
         <!-- Game Over -->
         <div id="game-end">
-            <h1>Game Over</h1>
-            <img src="./images/alpaca-resting.png" alt="alpaca resting" class="alpaca-resting" />
-            <button id="restart-button">PLAY AGAIN</button>
+            <div class="game-over-content">
+                <div class="game-over-text">
+                    <h1>Game Over</h1>
+                    <button id="restart-button">PLAY AGAIN</button>
+                </div>
+                <img src="./images/alpaca-resting.png" alt="alpaca resting" class="alpaca-resting" />
+            </div>
         </div>
     </main>
 
