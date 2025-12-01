@@ -8,7 +8,6 @@ class Game {
         this.height = 470;
         this.width = 1000;
         this.score = 0; 
-        this.lives = 3;
         this.speed = 3;
         this.gameIsOver = false;
         this.gameIntervalId
@@ -18,7 +17,7 @@ class Game {
         this.powerUps = [];
         //get elements from HTML
         this.scoreElement = document.getElementById('score');
-        this.livesElement = document.querySelectorAll('#lives .heart');
+        this.livesManager = new LivesManager("lives", 3);
         //keep track of the frames
         this.frames = 0;
     };
@@ -72,20 +71,12 @@ class Game {
                 //remove obstacle from the array
                 this.obstacles.splice(i, 1);
                 i--;
-                //subtract one life
-                this.lives--;
-
-                //remove heart image from DOM
-                this.livesElement[this.lives].style.display = 'none';
-
-                console.log('score:', this.score);
-                console.log('lives', this.lives);
-
-                if(this.lives === 0) {
+           
+                const remainingLives = this.livesManager.loseLife();
+                if (remainingLives === 0) {
                     this.gameIsOver = true;
                 }
-
-                break; 
+               // break; 
             }
 
             //check if player passed the obstacle
@@ -117,12 +108,8 @@ class Game {
             j--;
 
             // add one life     
-            if (this.lives < this.livesElement.length) { 
-                this.lives++;
-                this.livesElement[this.lives - 1].style.display = 'inline';
+            this.livesManager.gainLife();
             }
-            }
-
             // remove if passed the left edge
             if (currentPowerUp.left + currentPowerUp.width < 0) {
                 currentPowerUp.element.remove();
