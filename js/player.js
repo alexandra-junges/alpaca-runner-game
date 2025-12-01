@@ -2,24 +2,24 @@ class Player {
     constructor(gameScreen) {
         this.gameScreen = gameScreen;
         this.left = 100;
-        this.top = 180;
-        this.width = 200;
-        this.height = 240;
-        this.directionX = 0;
+        this.top = 330;
+        this.width = 88;
+        this.height = 105;
 
-        this.gravity = 0.3;
+        this.gravity = 0.6;           //pulls the player down
         this.jumpStrength = -12;     // the force when jumping
-        this.velocityY = 2;          // current vertical speed
+        this.velocityY = 0;          // current vertical speed
         this.isJumping = false;      // prevents double jumps
-        this.groundLevel = 180;      // where the player stands (your current top position)
+        this.groundLevel = this.top; // where the player stands (your current top position)
 
         //player < img />
-        this.runningImg = "../images/alpaca-stand.png";
+        this.standImg = "../images/alpaca-stand.png";
+        this.runningImg = "../images/alpaca-running.png";
         this.jumpingImg = "../images/alpaca-jump.png"
 
         this.element = document.createElement("img");
-        this.element.src = this.runningImg;
-        this.element.style.position = "absolute";
+        this.element.src = this.standImg;
+        this.element.classList.add('alpaca-running');
 
         //the alpaca size
         this.element.style.height = `${this.height}px`; 
@@ -30,37 +30,44 @@ class Player {
         this.element.style.left = `${this.left}px`;   
 
         this.gameScreen.appendChild(this.element);
+
+        //for running animation
+        this.runningFrames = [this.standImg, this.runningImg];
+        this.currentFrame = 0;
+        this.frameCounter = 0;
     };
 
     move() {
-      //left and right movement
-        this.left += this.directionX;
+      //gravity - to pull the alpaca down
+      this.velocityY += this.gravity;
+      this.top += this.velocityY;
 
-        //gravity - to pull the alpaca down
-        this.velocityY += this.gravity;
-        this.top += this.velocityY;
-
-        //prevent falling through the ground
-        if(this.top >= this.groundLevel) {
-          this.top = this.groundLevel;
-          this.velocityY = 0;
+      //prevent falling through the ground
+      if(this.top >= this.groundLevel) {
+        this.top = this.groundLevel;
+        this.velocityY = 0;
 
         // switch back to stand
         if(this.isJumping) {
-          this.element.src = this.runningImg;
-        }
-
           this.isJumping = false;
+          this.element.src = this.standImg;
         }
+      }
 
-        //keep the player on the screen horizontaly
-        if(this.left <= 0) {
-          this.left = 0;
-        }
-        if(this.left + this.width >= this.gameScreen.offsetWidth) {
-          this.left = this.gameScreen.offsetWidth - this.width;
-        }
+      // prevent going above the top of the screen
+      if (this.top <= 0) {
+      this.top = 0;
+      this.velocityY = 0; // stop upward movement
+    }
 
+      // Running animation when not jumping
+      if (!this.isJumping) {
+          this.frameCounter++;
+          if (this.frameCounter % 10 === 0) { // switch frame every 10 moves
+              this.currentFrame = (this.currentFrame + 1) % this.runningFrames.length;
+              this.element.src = this.runningFrames[this.currentFrame];
+          }
+        }
         this.updatePosition();
     };
 
@@ -71,18 +78,18 @@ class Player {
     };
 
     didCollide(obstacle) {
-    const playerRect = this.element.getBoundingClientRect();
-    const obstacleRect = obstacle.element.getBoundingClientRect();
+      const playerRect = this.element.getBoundingClientRect();
+      const obstacleRect = obstacle.element.getBoundingClientRect();
 
-    if (
-      playerRect.left < obstacleRect.right &&
-      playerRect.right > obstacleRect.left &&
-      playerRect.top < obstacleRect.bottom &&
-      playerRect.bottom > obstacleRect.top
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+      if (
+        playerRect.left < obstacleRect.right &&
+        playerRect.right > obstacleRect.left &&
+        playerRect.top < obstacleRect.bottom &&
+        playerRect.bottom > obstacleRect.top
+      ) {
+        return true;
+      } else {
+        return false;
+      }
   }
 };

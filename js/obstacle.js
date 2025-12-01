@@ -1,12 +1,16 @@
 class Obstacle {
-    constructor(gameScreen) {
+    constructor(gameScreen, game) {
         this.gameScreen = gameScreen;
+        this.game = game; 
         this.passed = false;
-        
+
         //difine the obstacles
         this.types = [
-            {name: 'cactus', src:"../images/cactus.png", width: 60, height: 80, top: 350 },
-            {name: 'rock', src:"../images/rock.png", width: 60, height: 60, top: 385 },
+            {name: 'cactus', src:"../images/cactus.png", width: 40, height: 45, top: 390 },
+            {name: 'small-cactus', src:"../images/small-cactus.png", width: 40, height: 45, top: 390 },
+            {name: 'pot-cactus', src:"../images/pot-cactus.png", width: 40, height: 45, top: 390 },
+            {name: 'rock', src:"../images/rock.png", width: 40, height: 45, top: 390 },
+            {name: 'stone', src:"../images/stone.png", width: 40, height: 45, top: 400 },
         ];
    
         //random obstacle
@@ -36,7 +40,7 @@ class Obstacle {
     };
 
     move() {
-        this.left -= 3;
+        this.left -= this.game.speed; 
         this.updatePosition();
     };
 
