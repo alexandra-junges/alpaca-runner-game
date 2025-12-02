@@ -4,7 +4,7 @@ class Game {
         this.gameScreen = document.getElementById("game-screen");
         this.gameEnd = document.getElementById("game-end");
         this.scoreElement = document.getElementById('score');
-        this.finalScoreElement = document.getElementById('final-score');
+        this.highScoresElement = document.getElementById('high-scores');
 
         this.player = new Player(this.gameScreen);
         this.livesManager = new LivesManager("lives", 3);
@@ -20,6 +20,7 @@ class Game {
         this.powerUps = [];
 
         this.bgSound = new Audio('../sonds/bg-sound.wav');
+        this.bgSound.loop = true;
         this.bgSound.volume = ".1";
         this.bumped = new Audio('../sonds/bumped.wav');
         this.bumped.volume = ".1";
@@ -49,7 +50,7 @@ class Game {
         //gradually increase speed
         this.speed += 0.002;
         
-        if(this.frames % 190 === 0) {
+        if(this.frames % 160 === 0) {
             this.obstacles.push(new Obstacle(this.gameScreen, this));
         }
 
@@ -58,6 +59,7 @@ class Game {
         }
 
         this.update();
+
         if(this.gameIsOver) {
             clearInterval(this.gameIntervalId);
             this.gameOver();
@@ -125,10 +127,27 @@ class Game {
     gameOver() {
         this.bgSound.pause();
         this.bgSound.currentTime = 0;
-        
+
         this.lose.play();
         this.gameScreen.style.display = 'none';
         this.gameEnd.style.display = 'flex';
-        this.finalScoreElement.innerText = this.score;
+
+        //this.finalScoreElement.innerText = this.score;
+        const highScoresFromLS = JSON.parse(localStorage.getItem("high-scores"));
+        if(!highScoresFromLS) {
+            localStorage.setItem("high-scores", JSON.stringify([this.score]));
+        } else {
+            highScoresFromLS.push(this.score);
+            highScoresFromLS.sort((a, b) => b - a);
+
+            const topThreeScores = highScoresFromLS.splice(0, 3);
+            localStorage.setItem("high-scores", JSON.stringify(topThreeScores));
+
+            topThreeScores.forEach((oneScore) => {
+                const liElement = document.createElement("li");
+                liElement.innerText = oneScore;
+                this.highScoresElement.appendChild(liElement);
+            });
+        }
     };
 };
