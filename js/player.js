@@ -6,26 +6,23 @@ class Player {
         this.width = 88;
         this.height = 105;
 
-        this.gravity = 0.6;           //pulls the player down
+        this.gravity = 0.6;          //pulls the player down
         this.jumpStrength = -12;     // the force when jumping
         this.velocityY = 0;          // current vertical speed
         this.isJumping = false;      // prevents double jumps
-        this.groundLevel = this.top; // where the player stands (your current top position)
+        this.groundLevel = this.top; // where the player stands
 
-        //player < img />
         this.standImg = "../images/alpaca-stand.png";
         this.runningImg = "../images/alpaca-running.png";
-        this.jumpingImg = "../images/alpaca-jump.png"
+        this.jumpingImg = "../images/alpaca-jump.png";
 
         this.element = document.createElement("img");
         this.element.src = this.standImg;
         this.element.classList.add('alpaca-running');
 
-        //the alpaca size
         this.element.style.height = `${this.height}px`; 
         this.element.style.width = `${this.width}px`;
         
-        // the alpaca position when the game start
         this.element.style.top = `${this.top}px`;
         this.element.style.left = `${this.left}px`;   
 
@@ -38,32 +35,26 @@ class Player {
     };
 
     move() {
-      //gravity - to pull the alpaca down
       this.velocityY += this.gravity;
       this.top += this.velocityY;
 
-      //prevent falling through the ground
       if(this.top >= this.groundLevel) {
         this.top = this.groundLevel;
         this.velocityY = 0;
 
-        // switch back to stand
         if(this.isJumping) {
           this.isJumping = false;
           this.element.src = this.standImg;
         }
       }
-
-      // prevent going above the top of the screen
       if (this.top <= 0) {
-      this.top = 0;
-      this.velocityY = 0; // stop upward movement
+        this.top = 0;
+        this.velocityY = 0; 
     }
 
-      // Running animation when not jumping
       if (!this.isJumping) {
           this.frameCounter++;
-          if (this.frameCounter % 10 === 0) { // switch frame every 10 moves
+          if (this.frameCounter % 10 === 0) { 
               this.currentFrame = (this.currentFrame + 1) % this.runningFrames.length;
               this.element.src = this.runningFrames[this.currentFrame];
           }

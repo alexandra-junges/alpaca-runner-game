@@ -10,15 +10,7 @@ restartBtn.addEventListener("click", () => {
     window.location.reload();
 });
 
-//keyboard events
 window.addEventListener("keydown", (event) => {
-
-    if(event.code === "ArrowLeft") {
-        alpacaGame.player.directionX = -4;
-    }
-    if(event.code === "ArrowRight") {
-        alpacaGame.player.directionX = 4;
-    }
     if(event.code === "Space") {
         const player = alpacaGame.player;
 
@@ -30,19 +22,10 @@ window.addEventListener("keydown", (event) => {
     }
 });
 
-window.addEventListener("keyup", (event) => {
-    if(event.code === "ArrowLeft") {
-        alpacaGame.player.directionX = 0;
-    }
-    if(event.code === "ArrowRight") {
-        alpacaGame.player.directionX = 0;
-    }
-});
-
 function startGame() {
     alpacaGame = new Game();
     alpacaGame.start();
-    startClouds(); 
+    startClouds();
 };
 
 

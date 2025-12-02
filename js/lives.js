@@ -16,6 +16,7 @@ class LivesManager {
             const heart = document.createElement("img");
             heart.src = "./images/heart.png";
             heart.classList.add("heart");
+            
             this.container.appendChild(heart);
             this.heartElements.push(heart);
         }
