@@ -1,12 +1,12 @@
-#🦙 Alpaca Runner Game
+# 🦙 Alpaca Runner Game
 
 Click here to play the deployed game - not ready yet
 
-##📖 Description
+## 📖 Description
 
 The Alpaca Runner Game is a simple, browser-based game built using vanilla JavaScript, HTML, and CSS, inspired by the Google Dino Runner. The goal is to guide the alpaca character as it runs, avoiding various obstacles and collecting power-ups to gain extra lives.
 
-##✨ Minimum Viable Product (MVP) - Implemented Features
+## ✨ Minimum Viable Product (MVP) - Implemented Features
 
 The core functionality of the game is now defined by these features:
 
@@ -28,7 +28,7 @@ The core functionality of the game is now defined by these features:
 
 - Object-Oriented Structure: The code is organized into six functional JavaScript Classes.
 
-##🚧 Backlog - Future Improvements
+## 🚧 Backlog - Future Improvements
 
 *List of features to implement after the current MVP is stable.*
 
@@ -40,7 +40,7 @@ The core functionality of the game is now defined by these features:
 
 - Improve the visual difficulty by changing the parallax speed over time.
 
-##⚙️ Data Structure
+## ⚙️ Data Structure
 
 The application is structured using six primary JavaScript classes for modularity:
 
@@ -56,7 +56,7 @@ The application is structured using six primary JavaScript classes for modularit
 
 - Powerup Class: Handles the generation, movement, and collection logic for bonuses (donuts).
 
-##🖥️ States and Transitions (Views)
+## 🖥️ States and Transitions (Views)
 
 The game has three main states (screens) managed by DOM manipulation:
 
@@ -66,13 +66,13 @@ The game has three main states (screens) managed by DOM manipulation:
 
 3. GAME_OVER: The end state. Displays the final score and a "Play Again" button. Transitions back to **START**.
 
-##📝 Task Prioritization
+## 📝 Task Prioritization
 
 Tasks are prioritized using the Kanban method.
 
 Refer to the Kanban board for the complete, prioritized task list.
 
-##🔗 Links
+## 🔗 Links
 
 ([Kanban Development Board](https://trello.com/b/1rb1ZCET/alpaca-game))
 
