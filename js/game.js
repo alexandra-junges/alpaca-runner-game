@@ -123,6 +123,9 @@ class Game {
     };
 
     gameOver() {
+        this.bgSound.pause();
+        this.bgSound.currentTime = 0;
+        
         this.lose.play();
         this.gameScreen.style.display = 'none';
         this.gameEnd.style.display = 'flex';
