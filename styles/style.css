@@ -67,47 +67,20 @@ body {
     overflow: hidden;
 }
 
-#cloud-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 200px;  
-  pointer-events: none; 
-  overflow: visible;
-}
-
 .cloud {
   position: absolute;
-  left: 100%; 
-  animation: cloudMove linear forwards;
-  opacity: 0.9;
+  height: auto;
+  animation: cloudMove 8s linear infinite;
 }
+
+.c1 { top: 10px; width: 80px; animation-duration: 18s; }
+.c2 { top: 80px; width: 30px; animation-duration: 25s; }
+.c3 { top: 200px; width: 60px; animation-duration: 38s; }
 
 @keyframes cloudMove {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-120vw); }
+  from { left: 100%; }  
+  to { left: -100px; }   
 }
-
-/* #mountain-container {
-  position: absolute;
-  top: 305px;
-  left: 0;
-  width: 100%;
-  height: 200px;  
-}
-
-.mountain {
-  position: absolute;
-  left: 100%; 
-  animation: mountainMove linear forwards;
-  opacity: 0.9;
-}
-
-@keyframes mountainMove {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-120vw); }
-} */
 
 #mountain {
     position: absolute;    
@@ -191,6 +164,16 @@ body {
     font-size: 48px;
     margin: 0;
     color: #5b4842;
+}
+
+#final-score {
+    font-weight: bolder;
+    margin: 0;
+}
+
+.final-score {
+    color: #5b4842;
+    margin: 0;
 }
 
 .alpaca-resting {

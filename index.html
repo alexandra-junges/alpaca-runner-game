@@ -26,7 +26,11 @@
 
         <!-- Game Screen -->
         <div id="game-screen">
-            <div id="cloud-container"></div>
+              <div class="clouds">
+                <img src="./images/cloud.png" alt="white cloud" class="cloud c1">
+                <img src="./images/cloud.png" alt="white cloud" class="cloud c2">
+                <img src="./images/cloud.png" alt="white cloud" class="cloud c3">
+            </div>
             <div id="lives"></div>
             <span id="score">0</span>
             <div id="mountain"></div>
@@ -38,6 +42,7 @@
             <div class="game-over-content">
                 <div class="game-over-text">
                     <h1>Game Over</h1>
+                    <p class="final-score">Your score: <span id="final-score">0</span></p>
                     <button id="restart-button">PLAY AGAIN</button>
                 </div>
                 <img src="./images/alpaca-resting.png" alt="alpaca resting" class="alpaca-resting" />
@@ -45,7 +50,6 @@
         </div>
     </main>
 
-    <script type="text/javascript" src="js/clouds.js"></script>
     <script type="text/javascript" src="js/lives.js"></script>
     <script type="text/javascript" src="js/powerup.js"></script>
     <script type="text/javascript" src="js/obstacle.js"></script>

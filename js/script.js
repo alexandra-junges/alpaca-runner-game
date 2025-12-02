@@ -11,9 +11,11 @@ restartBtn.addEventListener("click", () => {
 });
 
 window.addEventListener("keydown", (event) => {
+    
     if(event.code === "Space") {
         const player = alpacaGame.player;
-
+        alpacaGame.jump.play();
+        
         if(!player.isJumping) { // prevents double jump
             player.isJumping = true;
             player.velocityY = player.jumpStrength;
@@ -25,7 +27,6 @@ window.addEventListener("keydown", (event) => {
 function startGame() {
     alpacaGame = new Game();
     alpacaGame.start();
-    startClouds();
 };
 
 

@@ -4,6 +4,7 @@ class Game {
         this.gameScreen = document.getElementById("game-screen");
         this.gameEnd = document.getElementById("game-end");
         this.scoreElement = document.getElementById('score');
+        this.finalScoreElement = document.getElementById('final-score');
 
         this.player = new Player(this.gameScreen);
         this.livesManager = new LivesManager("lives", 3);
@@ -15,11 +16,23 @@ class Game {
         this.gameIsOver = false;
         this.gameIntervalId
         this.gameLoopFrequency = Math.floor(1000 / 60);
-        this.obstacles = []; //new Obstacle(this.gameScreen)
+        this.obstacles = [];
         this.powerUps = [];
+
+        this.bgSound = new Audio('../sonds/bg-sound.wav');
+        this.bgSound.volume = ".1";
+        this.bumped = new Audio('../sonds/bumped.wav');
+        this.bumped.volume = ".1";
+        this.lose = new Audio('../sonds/lose.wav');
+        this.lose.volume = ".1";
+        this.acquire = new Audio('../sonds/acquire.wav');
+        this.acquire.volume = ".1";
+        this.jump = new Audio('../sonds/jump.wav');
+        this.jump.volume = ".1";
     };
 
     start() {
+        this.bgSound.play();
         this.gameScreen.style.height = `${this.height}px`;
         this.gameScreen.style.width = `${this.width}px`;
 
@@ -63,6 +76,7 @@ class Game {
                 //remove obstacle from the array
                 this.obstacles.splice(i, 1);
                 i--;
+                this.bumped.play();
            
                 const remainingLives = this.livesManager.loseLife();
                 if (remainingLives === 0) {
@@ -96,6 +110,7 @@ class Game {
 
                 // add one life     
                 this.livesManager.gainLife();
+                this.acquire.play();
             }
 
             if (currentPowerUp.left + currentPowerUp.width < 0) {
@@ -108,7 +123,9 @@ class Game {
     };
 
     gameOver() {
+        this.lose.play();
         this.gameScreen.style.display = 'none';
         this.gameEnd.style.display = 'flex';
+        this.finalScoreElement.innerText = this.score;
     };
 };
