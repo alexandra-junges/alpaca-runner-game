@@ -13,8 +13,12 @@ body {
 #game-start,
 #game-screen,
 #game-end {
-    width: 100%;
+    /* width: 100%;
     height: 470px;
+    display: none; */
+    width: 1000px;
+    height: 470px;
+    margin: 0 auto; 
     display: none;
 }
 
@@ -23,7 +27,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* background-color: #fdf2d5; */
+    background-color: #fdf2d5;
 }
 
 .logo-img {
@@ -39,11 +43,25 @@ body {
     line-height: 6px;
 }
 
+#player-name {
+    width: 300px;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #b6aba7;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#player-name:focus {
+    outline: none;
+    box-shadow: 0px 0px 4px #f17445;
+}
+
 #start-button,
 #restart-button {
     background-color: #f17445;
     color: #fdf2d5;
-    /* border: 3px solid #80502c;*/
     border: none; 
     padding: 10px 20px;
     font-size: 25px;
@@ -58,7 +76,7 @@ body {
     width: 265px;
     height: auto;
     margin-left: 620px;
-    margin-top: -325px;
+    margin-top: -390px;
 }
 
 #game-screen {
@@ -120,6 +138,16 @@ body {
     color: #5b4842;    
 }
 
+.alpaca-running {
+    position: absolute;
+    animation: runMove 0.5s steps(2) infinite;
+}
+
+@keyframes runMove {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-2px) rotate(-1deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
 
 #ground {
     position: absolute;    
@@ -136,12 +164,11 @@ body {
   to { transform: translateX(-50%); }
 }
 
-
 #game-end {
     display: none;
     align-items: center;           
     justify-content: center;       
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #fdf2d5;
 }
 
@@ -155,21 +182,20 @@ body {
     display: flex;
     flex-direction: column;        
     align-items: flex-start;      
-    gap: 20px;
+    color: #5b4842;
 }
 
 .game-over-text h1 {
     font-size: 48px;
     margin: 0;
-    color: #5b4842;
 }
 
-.final-score {
-    color: #5b4842;
-    margin: 0;
+.final-score{
+    margin: 10px 0 0 0;
 }
 
 #high-scores {
+    margin: 0;
     font-weight: bolder;
     text-decoration: none;
 }
@@ -177,16 +203,4 @@ body {
 .alpaca-resting {
     height: 400px;                 
     width: auto;
-}
-
-/* alpaca running */
-.alpaca-running {
-    position: absolute;
-    animation: runMove 0.5s steps(2) infinite;
-}
-
-@keyframes runMove {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-2px) rotate(-1deg); }
-    100% { transform: translateY(0) rotate(0deg); }
 }

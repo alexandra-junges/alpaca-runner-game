@@ -3,6 +3,14 @@ const startBtn = document.getElementById("start-button");
 const restartBtn = document.getElementById("restart-button");
 
 startBtn.addEventListener("click", () => {
+    const nameInput = document.getElementById("player-name").value.trim();
+
+    if(nameInput) {
+        localStorage.setItem("player-name", nameInput);
+    } else {
+        localStorage.setItem("player-name", "Player");
+    }
+
     startGame();
 });
 

@@ -8,8 +8,8 @@ class Obstacle {
             {name: 'cactus', src:"../images/cactus.png", width: 40, height: 45, top: 360 },
             {name: 'small-cactus', src:"../images/small-cactus.png", width: 40, height: 45, top: 370 },
             {name: 'pot-cactus', src:"../images/pot-cactus.png", width: 40, height: 45, top: 360 },
-            {name: 'rock', src:"../images/rock.png", width: 40, height: 45, top: 380 }, 
-            {name: 'stone', src:"../images/stone.png", width: 40, height: 45, top: 380 },
+            {name: 'rock', src:"../images/rock.png", width: 40, height: 35, top: 380 }, 
+            {name: 'stone', src:"../images/stone.png", width: 40, height:35, top: 380 },
         ];
 
         const randomType = this.types[Math.floor(Math.random() * this.types.length)];

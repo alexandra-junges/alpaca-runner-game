@@ -132,20 +132,26 @@ class Game {
         this.gameScreen.style.display = 'none';
         this.gameEnd.style.display = 'flex';
 
-        //this.finalScoreElement.innerText = this.score;
-        const highScoresFromLS = JSON.parse(localStorage.getItem("high-scores"));
+        const playerName = localStorage.getItem("player-name") || "Player";
+        const highScoresFromLS = JSON.parse(localStorage.getItem("high-scores")) || [];
+
+        const newEntry = {
+            name: playerName,
+            score: this.score,
+        };
+
         if(!highScoresFromLS) {
-            localStorage.setItem("high-scores", JSON.stringify([this.score]));
+            localStorage.setItem("high-scores", JSON.stringify([newEntry]));
         } else {
-            highScoresFromLS.push(this.score);
-            highScoresFromLS.sort((a, b) => b - a);
+            highScoresFromLS.push(newEntry);
+            highScoresFromLS.sort((a, b) => b.score - a.score);
 
             const topThreeScores = highScoresFromLS.splice(0, 3);
             localStorage.setItem("high-scores", JSON.stringify(topThreeScores));
 
-            topThreeScores.forEach((oneScore) => {
+            topThreeScores.forEach((entry) => {
                 const liElement = document.createElement("li");
-                liElement.innerText = oneScore;
+                liElement.innerText = `${entry.name}: ${entry.score}`;
                 this.highScoresElement.appendChild(liElement);
             });
         }

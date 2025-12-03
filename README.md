@@ -20,6 +20,8 @@ The core functionality of the game is now defined by these features:
 
     - Score Tracking: Points are awarded for successfully clearing an obstacle without collision.
 
+    - High Score Board: Implemented the storage, retrieval, and display of the top 3 high scores and corresponding player names using local storage.
+
     - Multiple Obstacles: An array manages different obstacle types (rocks, cactus) on the track.
 
     - Lives System: A dedicated system tracks and displays player lives.
@@ -32,13 +34,9 @@ The core functionality of the game is now defined by these features:
 
 *List of features to implement after the current MVP is stable.*
 
-- Implement a high score board using local storage for persistence.
-
 - Implement the double-jump mechanic for added player agility.
 
 - Introduce more complex obstacles like fast-moving fences and tricky river jumps.
-
-- Improve the visual difficulty by changing the parallax speed over time.
 
 ## ⚙️ Data Structure
 
@@ -64,7 +62,7 @@ The game has three main states (screens) managed by DOM manipulation:
 
 2. GAME: The active play state. Displays the player, obstacles, score, and lives. Transitions to **GAME_OVER**.
 
-3. GAME_OVER: The end state. Displays the final score and a "Play Again" button. Transitions back to **START**.
+3. GAME_OVER: The end state. Displays the final score, a form for the player's name (if they achieved a high score), the list of the top 3 high scores, and a "Play Again" button. Transitions back to **START**.
 
 ## 📝 Task Prioritization
 
