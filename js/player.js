@@ -12,9 +12,9 @@ class Player {
         this.isJumping = false;      // prevents double jumps
         this.groundLevel = this.top; // where the player stands
 
-        this.standImg = "../images/alpaca-stand.png";
-        this.runningImg = "../images/alpaca-running.png";
-        this.jumpingImg = "../images/alpaca-jump.png";
+        this.standImg = "images/alpaca-stand.png";
+        this.runningImg = "images/alpaca-running.png";
+        this.jumpingImg = "images/alpaca-jump.png";
 
         this.element = document.createElement("img");
         this.element.src = this.standImg;
