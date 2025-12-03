@@ -1,6 +1,6 @@
 # 🦙 Alpaca Runner Game
 
-Click here to play the deployed game - not ready yet
+([Click here to play the deployed game](https://alexandra-junges.github.io/alpaca-runner-game/))
 
 ## 📖 Description
 
@@ -76,4 +76,4 @@ Refer to the Kanban board for the complete, prioritized task list.
 
 ([GitHub Repository](https://github.com/alexandra-junges/alpaca-runner-game/tree/main))
 
-([Deployment](Link))
+([Deployment](https://alexandra-junges.github.io/alpaca-runner-game/))
