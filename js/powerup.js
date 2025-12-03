@@ -9,7 +9,7 @@ class PowerUp {
         this.top = 305;
 
         this.element = document.createElement('img');
-        this.element.src = "../images/life.png"; 
+        this.element.src = "images/life.png"; 
         
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
