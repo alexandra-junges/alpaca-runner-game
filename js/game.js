@@ -19,16 +19,16 @@ class Game {
         this.obstacles = [];
         this.powerUps = [];
 
-        this.bgSound = new Audio('../sonds/bg-sound.wav');
+        this.bgSound = new Audio('sonds/bg-sound.wav');
         this.bgSound.loop = true;
         this.bgSound.volume = ".1";
-        this.bumped = new Audio('../sonds/bumped.wav');
+        this.bumped = new Audio('sonds/bumped.wav');
         this.bumped.volume = ".1";
-        this.lose = new Audio('../sonds/lose.wav');
+        this.lose = new Audio('sonds/lose.wav');
         this.lose.volume = ".1";
-        this.acquire = new Audio('../sonds/acquire.wav');
+        this.acquire = new Audio('sonds/acquire.wav');
         this.acquire.volume = ".1";
-        this.jump = new Audio('../sonds/jump.wav');
+        this.jump = new Audio('sonds/jump.wav');
         this.jump.volume = ".1";
     };
 
