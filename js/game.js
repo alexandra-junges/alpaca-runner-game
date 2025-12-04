@@ -11,7 +11,7 @@ class Game {
         this.height = 600;
         this.width = 1200;
         this.score = 0; 
-        this.speed = 3;
+        this.speed = 7;
         this.frames = 0;
         this.gameIsOver = false;
         this.gameIntervalId
