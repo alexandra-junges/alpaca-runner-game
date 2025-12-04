@@ -7,7 +7,7 @@ class Player {
         this.height = 110;
 
         this.gravity = 0.6;          //pulls the player down
-        this.jumpStrength = -12;     // the force when jumping
+        this.jumpStrength = -14;     // the force when jumping
         this.velocityY = 0;          // current vertical speed
         this.isJumping = false;      // prevents double jumps
         this.groundLevel = this.top; // where the player stands
