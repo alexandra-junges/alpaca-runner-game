@@ -1,6 +1,6 @@
 class LivesManager {
-    constructor(containerId, maxLives = 3) {
-        this.container = document.getElementById(containerId);
+    constructor(livesContainer, maxLives = 3) {
+        this.livesContainer = document.getElementById(livesContainer);
         this.maxLives = maxLives;
         this.currentLives = maxLives;
 
@@ -10,14 +10,14 @@ class LivesManager {
     }
 
     renderHearts() {
-        this.container.innerHTML = ""; // reset container
+        this.livesContainer.innerHTML = "";
 
         for (let i = 0; i < this.maxLives; i++) {
             const heart = document.createElement("img");
             heart.src = "./images/heart.png";
             heart.classList.add("heart");
             
-            this.container.appendChild(heart);
+            this.livesContainer.appendChild(heart);
             this.heartElements.push(heart);
         }
     }
