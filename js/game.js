@@ -50,7 +50,7 @@ class Game {
         //gradually increase speed
         this.speed += 0.002;
         
-        if(this.frames % 160 === 0) {
+        if(this.frames % 140 === 0) {
             this.obstacles.push(new Obstacle(this.gameScreen, this));
         }
 
@@ -121,7 +121,6 @@ class Game {
                 j--;
             }
         }
-
     };
 
     gameOver() {
