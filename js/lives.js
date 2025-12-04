@@ -14,7 +14,7 @@ class LivesManager {
 
         for (let i = 0; i < this.maxLives; i++) {
             const heart = document.createElement("img");
-            heart.src = "./images/heart.png";
+            heart.src = "images/heart.png";
             heart.classList.add("heart");
             
             this.livesContainer.appendChild(heart);
