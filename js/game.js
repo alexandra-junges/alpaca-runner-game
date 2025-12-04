@@ -8,8 +8,8 @@ class Game {
 
         this.player = new Player(this.gameScreen);
         this.livesManager = new LivesManager("lives", 3);
-        this.height = 470;
-        this.width = 1000;
+        this.height = 600;
+        this.width = 1200;
         this.score = 0; 
         this.speed = 3;
         this.frames = 0;

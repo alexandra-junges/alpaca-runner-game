@@ -2,9 +2,9 @@ class Player {
     constructor(gameScreen) {
         this.gameScreen = gameScreen;
         this.left = 100;
-        this.top = 305;
-        this.width = 88;
-        this.height = 105;
+        this.top = 435;
+        this.width = 98;
+        this.height = 110;
 
         this.gravity = 0.6;          //pulls the player down
         this.jumpStrength = -12;     // the force when jumping

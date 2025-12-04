@@ -13,31 +13,44 @@ body {
 #game-start,
 #game-screen,
 #game-end {    
-    width: 1000px;
-    height: 470px; 
-    margin: 20px auto; 
+    width: 1200px;
+    height: 600px; 
+    margin: 40px auto; 
     display: none;
 }
 
 #game-start{
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #fdf2d5;
 }
 
+.game-start-content {
+    display: flex;
+    align-items: center; 
+    justify-content: space-around;      
+    gap: 50px;    
+    padding: 40px; 
+}
+
+.game-start-text {
+    display: flex;
+    flex-direction: column;        
+    align-items: center;      
+}
+
 .logo-img {
   width: 350px;
-  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .game-instructions {
     font-size: 15px;
     color: #5b4842;
     text-align: center;
-    margin-top: 30px;
-    line-height: 6px;
+    margin-top: 10px;
+    line-height: 1.4;
 }
 
 #player-name {
@@ -70,10 +83,9 @@ body {
 }
 
 .start-page-alpaca {
-    width: 265px;
+    width: 350px;
     height: auto;
-    margin-left: 620px;
-    margin-top: -390px;
+    margin-top: 20px;
 }
 
 #game-screen {
@@ -88,9 +100,9 @@ body {
   animation: cloudMove 8s linear infinite;
 }
 
-.c1 { top: 10px; width: 80px; animation-duration: 18s; }
-.c2 { top: 80px; width: 30px; animation-duration: 25s; }
-.c3 { top: 200px; width: 60px; animation-duration: 38s; }
+.c1 { top: 80px; width: 80px; animation-duration: 18s; }
+.c2 { top: 180px; width: 60px; animation-duration: 25s; }
+.c3 { top: 300px; width: 105px; animation-duration: 38s; }
 
 @keyframes cloudMove {
   from { left: 100%; }  
@@ -165,7 +177,6 @@ body {
     display: none;
     align-items: center;           
     justify-content: center;       
-    /* height: 100vh; */
     background-color: #fdf2d5;
 }
 
