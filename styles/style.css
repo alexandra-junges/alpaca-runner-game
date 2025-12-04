@@ -15,7 +15,7 @@ body {
 #game-end {    
     width: 1000px;
     height: 470px; 
-    margin: 0 auto; 
+    margin: 20px auto; 
     display: none;
 }
 

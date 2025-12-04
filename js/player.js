@@ -47,10 +47,6 @@ class Player {
           this.element.src = this.standImg;
         }
       }
-      if (this.top <= 0) {
-        this.top = 0;
-        this.velocityY = 0; 
-    }
 
       if (!this.isJumping) {
           this.frameCounter++;
